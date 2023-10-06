@@ -9,21 +9,19 @@
 
 public class Agent {
     private static Agent agentInstance;
-    private int numRequests;
+    private static int numRequests;
     
     private Agent(){
         numRequests = 0;
     }
-    public static Agent Instance() { //class method to get to unique instance
-        if(agentInstance == null) 
-        agentInstance = new Agent(); 
-         return agentInstance; 
-         }
 
-    public Agent getAgent(){
+    public static Agent getAgent(){
+        if(agentInstance == null) // ENSURES AGENT EXISTS ONLY ONCE
+        agentInstance = new Agent();
         numRequests++;
-        return this;
+        return agentInstance;     // one agent is being incremented
     }
+
     public String toString(){
         return "C'est moi, le singleton agent pour le " +numRequests + " fois!";
     }
