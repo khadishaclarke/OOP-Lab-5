@@ -4,7 +4,7 @@ package com.example;
 class GildedRose {
     Item[] items; //array
 
-    public GildedRose(Item[] items) {
+    public GildedRose(Item[] items) { // inisialize array with items
         this.items = items;
     }
 

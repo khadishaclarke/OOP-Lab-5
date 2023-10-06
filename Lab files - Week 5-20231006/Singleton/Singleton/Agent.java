@@ -8,12 +8,19 @@
  */
 
 public class Agent {
+    private static Agent agentInstance;
     private int numRequests;
     
     private Agent(){
         numRequests = 0;
     }
-    public static Agent getAgent(){
+    public static Agent Instance() { //class method to get to unique instance
+        if(agentInstance == null) 
+        agentInstance = new Agent(); 
+         return agentInstance; 
+         }
+
+    public Agent getAgent(){
         numRequests++;
         return this;
     }
